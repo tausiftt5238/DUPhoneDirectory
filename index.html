@@ -35,6 +35,29 @@
 
 			}
 
+			function details(id) {
+				document.getElementById('contactlist').style.display = 'none';
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState== 4 && this.status == 200){
+                        console.log(this.responseText);
+                        old_html = document.getElementById("showName").innerHTML;
+                        document.getElementById("showName").innerHTML = old_html+this.responseText;
+                        //document.getElementById("showName").insertAdjacentHTML('');
+                    }
+                };
+
+                var params = "id="+id;
+                xhttp.open("POST","queryContact.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(params);
+			}
+
+			function rewind() {
+			    document.getElementById('fullcontact').outerHTML = "";
+			    document.getElementById('contactlist').style.display = 'inline';
+			}
 	</script>
 	<link rel="stylesheet" href="styles.css">
 	<style>
