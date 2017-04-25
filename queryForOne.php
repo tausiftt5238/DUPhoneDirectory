@@ -14,7 +14,7 @@ $username = "adminman";
 $password = "password";
 $dbname = "directory_uni";
 
-$ret_str = "<option value=\"#\"> --- </option>";
+$ret_str = "<option value=\"#\">---</option>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

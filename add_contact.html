@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add contact</title>
+	<title>Add contact</title>
 	<link rel="stylesheet" href="styles.css">
 	<style>
 		textarea{
@@ -11,60 +11,146 @@
 			border-radius: 20px;
 		}
 	</style>
+	<script type="text/javascript">
+		var nemail=0;
+		var nphone=0;
+
+		function expandmail() {
+		    nemail = nemail+1;
+		    var str = "Email"+(nemail+1).toString()+":<br><input type=\"text\" id=\""+nemail.toString()+"\"></input><br>"
+		    var oldhtml = document.getElementById("extramail").innerHTML;
+            document.getElementById("extramail").innerHTML = oldhtml + str;
+		}
+
+		function expandphone() {
+            nphone = nphone+1;
+            var str = "Phone"+(nphone+1).toString()+":<br><input type=\"text\" id=\""+nphone.toString()+"\"></input><br>"
+            var oldhtml = document.getElementById("extraphone").innerHTML;
+            document.getElementById("extraphone").innerHTML = oldhtml + str;
+		}
+
+		function submit() {
+		    var elems = document.getElementsByTagName("INPUT");
+		    var len = elems.length;
+		    for(var i=0;i<len;i++) {
+		        if(elems[i].value=="") {
+                    document.getElementById("errmsg").innerHTML = "<a style='color: red'>Empty Fields not allowed</a>"
+		            return;
+                }
+			}
+			elems = document.getElementsByTagName("SELECT");
+            var len = elems.length;
+            for(var i=0;i<len;i++) {
+                if(elems[i].value=="---") {
+                    document.getElementById("errmsg").innerHTML = "<a style='color: red'>Empty Fields not allowed</a>"
+                    return;
+                }
+            }
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState== 4 && this.status == 200){
+                    console.log(this.responseText);
+                    if(this.responseText=="failed")
+                        document.getElementById("errmsg").innerHTML = "<a style='color: red'>Failed to insert data</a>";
+                    else if(this.responseText=="Success")
+                        window.location.href = "show";
+
+                }
+            };
+
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            var params = "username="+username+"&password="+password;
+            //console.log(value);
+            xhttp.open("POST","success.php", true); // method, which file, async
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(params);
+		}
+	</script>
 </head>
 <body style="background-color:#d8dbd6;">
-	<ul>
-		<li><a href="show">Browse</a></li>
-		<li><a class="active" href="add">Add Contact</a></li>
-		<li style="float: right"><a href="logout">Logout</a></li>
-		<!--<li><a href="#contact">Contact</a></li>
-		<li><a href="#about">About</a></li>-->
-	</ul>
-    <form action = "success.php" method = "POST">
-         <h3>Teacher Information</h3>
-		 Name<br>
-         <textarea name = "name" rows="1" cols="50"></textarea></br>
+<ul>
+	<li><a href="show">Browse</a></li>
+	<li><a class="active" href="add">Add Contact</a></li>
+	<li style="float: right"><a href="logout">Logout</a></li>
+	<!--<li><a href="#contact">Contact</a></li>
+	<li><a href="#about">About</a></li>-->
+</ul>
 
-         Email<br>
-         <textarea name = "email" rows="1" cols="50"></textarea><br>
+<h3>Teacher Information</h3>
+Name<br>
+<input type="text" id = "name"></input></br>
 
-		 Phone<br>
-         <textarea name = "phone" rows="1" cols="50"></textarea><br>
+Email<br>
+<input type="text" id = "email"></input><br>
+<div id="extramail"></div>
+<img src="res/plus.ico" onclick="expandmail()" height="20" width="20"><br>
+Phone<br>
+<input type="text" id = "phone"></input><br>
+<div id="extraphone"></div>
+<img src="res/plus.ico" onclick="expandphone()" height="20" width="20"><br>
+Faculty<br>
+<select id="faculty">
+	<script type="text/javascript">
+        var xhttp1 = new XMLHttpRequest();
 
-		 Faculty<br>
-         <select name = "faculty">
-			  <option value="ইঞ্জিনিয়ারিং এন্ড টেকনোলজি অনুষদ">ইঞ্জিনিয়ারিং এন্ড টেকনোলজি অনুষদ</option>
-			  
-			</select><br>
+        xhttp1.onreadystatechange = function(){
+            if(this.readyState== 4 && this.status == 200){
+                console.log(this.responseText);
+                document.getElementById("faculty").innerHTML = this.responseText;
+            }
+        };
+        //console.log(value);
+        sql_params = "query=SELECT faculty FROM faculty&field=faculty";
+        xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+        xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp1.send(sql_params);
+	</script>
+</select><br>
 
-		 Department<br>
-         <select name ="department" id = "department">
-			 <script type="text/javascript">
-                 var xhttp1 = new XMLHttpRequest();
+Department<br>
+<select id = "department">
+	<script type="text/javascript">
+        var xhttp1 = new XMLHttpRequest();
 
-                 xhttp1.onreadystatechange = function(){
-                     if(this.readyState== 4 && this.status == 200){
-                         console.log(this.responseText);
-                         document.getElementById("department").innerHTML = this.responseText;
-                     }
-                 };
-                 //console.log(value);
-                 sql_params = "query=SELECT department FROM department&field=department";
-                 xhttp1.open("POST","queryForOne.php", true); // method, which file, async
-                 xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                 xhttp1.send(sql_params);
-			 </script>
-		 </select><br>
-	
-		 Position<br>
-         <select name = "position">
-			  <option value="চেয়ারম্যান">চেয়ারম্যান</option>
-			  <option value="সহযোগী অধ্যাপক">সহযোগী অধ্যাপক</option>
-			  <option value="সহকারী অধ্যাপক">সহকারী অধ্যাপক</option>
-			  <option value="প্রভাষক">প্রভাষক</option>
-			</select><br>
-		
-         <br><input type = "submit" value = "submit" /><br>
-      </form>
+        xhttp1.onreadystatechange = function(){
+            if(this.readyState== 4 && this.status == 200){
+                console.log(this.responseText);
+                document.getElementById("department").innerHTML = this.responseText;
+            }
+        };
+        //console.log(value);
+        sql_params = "query=SELECT department FROM department&field=department";
+        xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+        xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp1.send(sql_params);
+	</script>
+</select><br>
+
+Position<br>
+<select name = "position" id="position">
+	<script type="text/javascript">
+        var xhttp1 = new XMLHttpRequest();
+
+        xhttp1.onreadystatechange = function(){
+            if(this.readyState== 4 && this.status == 200){
+                console.log(this.responseText);
+                document.getElementById("position").innerHTML = this.responseText;
+            }
+        };
+        //console.log(value);
+        sql_params = "query=SELECT position FROM position&field=position";
+        xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+        xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp1.send(sql_params);
+	</script>
+</select><br>
+
+<br><input type = "submit" value = "submit" onclick="submit()"/><br>
+
+<p id="errmsg"></p>
+
 </body>
 </html>
