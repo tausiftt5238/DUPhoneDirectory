@@ -56,6 +56,8 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+
+			$ret_str = $ret_str."<div id='contactlist'>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 //$ret_str = $ret_str."<div class=\"row\">";
@@ -65,7 +67,7 @@
                 $ret_str = $ret_str."<p class=\"title\">".$row['position']."</p>";
                 $ret_str = $ret_str."    <p>".$row['department']."</p>";
                 $ret_str = $ret_str."    <p>".$row['faculty']."</p>";
-                $ret_str = $ret_str."   <p><button>Contact</button></p>";
+                $ret_str = $ret_str."   <p><button onclick='details(\"".$row['ID']."\")'>Contact</button></p>";
                 /*$ret_str = $ret_str."Email: <br>";
 
                 $email_sql = "SELECT email FROM email WHERE ID=".$row['ID'];
@@ -90,6 +92,7 @@
                 $ret_str = $ret_str."</div></div><!--/div--></li>";
 
             }
+            $ret_str = $ret_str."</div>";
         } else {
             $ret_str = $ret_str."0 results";
         }
