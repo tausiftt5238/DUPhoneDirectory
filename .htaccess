@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteRule ^add$ add_contact.html
+RewriteRule ^show$ index.html
+RewriteRule ^login$ login.html
+RewriteRule ^logout$ logout.php

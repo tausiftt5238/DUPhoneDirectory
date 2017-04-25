@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add contact</title>
+</head>
+<body>
+    <form action = "success.php" method = "POST">
+         <h3>Student Information</h3>
+		 ID<br>
+         <input type = "text" name = "id" /></br>
+
+         Name<br>
+         <input type = "text" name = "name" /></br>
+
+         Email<br>
+         <textarea name = "email" ></textarea><br>
+
+		 Phone<br>
+         <textarea name = "phone" ></textarea><br>
+
+		 Faculty<br>
+         <select name = "faculty">
+			  <option value="Engineering and Technology">Engineering and Technology</option>
+			  
+			</select><br>
+
+		 Department<br>
+         <select name = "department">
+			  <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+			  <option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering</option>
+			  <option value="Nuclear Engineering">Nuclear Engineering</option>
+			  <option value="Applied Chemistry and Chemical Engineering">Applied Chemistry and Chemical Engineering</option>
+			</select><br>
+	
+		 Position<br>
+         <select name = "position">
+			  <option value="Chairman">Chairman</option>
+			  <option value="Departmental Office">Departmental Office</option>
+			  <option value="Associate Professor">Associate Professor</option>
+			  <option value="Assistant Professor">Assistant Professor</option>
+			  <option value="lec">Lecturer</option>
+			</select><br>
+		
+         <br><input type = "submit" value = "submit" /><br>
+      </form>
+</body>
+</html>

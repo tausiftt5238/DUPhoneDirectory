@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Add contact</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		textarea{
+			resize: none;
+			border-color: #4CAF50;
+			border-radius: 20px;
+		}
+	</style>
+</head>
+<body style="background-color:#d8dbd6;">
+	<ul>
+		<li><a href="show">Browse</a></li>
+		<li><a class="active" href="add">Add Contact</a></li>
+		<li style="float: right"><a href="logout">Logout</a></li>
+		<!--<li><a href="#contact">Contact</a></li>
+		<li><a href="#about">About</a></li>-->
+	</ul>
+    <form action = "success.php" method = "POST">
+         <h3>Teacher Information</h3>
+		 Name<br>
+         <textarea name = "name" rows="1" cols="50"></textarea></br>
+
+         Email<br>
+         <textarea name = "email" rows="1" cols="50"></textarea><br>
+
+		 Phone<br>
+         <textarea name = "phone" rows="1" cols="50"></textarea><br>
+
+		 Faculty<br>
+         <select name = "faculty">
+			  <option value="ইঞ্জিনিয়ারিং এন্ড টেকনোলজি অনুষদ">ইঞ্জিনিয়ারিং এন্ড টেকনোলজি অনুষদ</option>
+			  
+			</select><br>
+
+		 Department<br>
+         <select name ="department" id = "department">
+			 <script type="text/javascript">
+                 var xhttp1 = new XMLHttpRequest();
+
+                 xhttp1.onreadystatechange = function(){
+                     if(this.readyState== 4 && this.status == 200){
+                         console.log(this.responseText);
+                         document.getElementById("department").innerHTML = this.responseText;
+                     }
+                 };
+                 //console.log(value);
+                 sql_params = "query=SELECT department FROM department&field=department";
+                 xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+                 xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                 xhttp1.send(sql_params);
+			 </script>
+		 </select><br>
+	
+		 Position<br>
+         <select name = "position">
+			  <option value="চেয়ারম্যান">চেয়ারম্যান</option>
+			  <option value="সহযোগী অধ্যাপক">সহযোগী অধ্যাপক</option>
+			  <option value="সহকারী অধ্যাপক">সহকারী অধ্যাপক</option>
+			  <option value="প্রভাষক">প্রভাষক</option>
+			</select><br>
+		
+         <br><input type = "submit" value = "submit" /><br>
+      </form>
+</body>
+</html>

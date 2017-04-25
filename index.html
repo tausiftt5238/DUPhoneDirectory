@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+		  />
+	<!--content="width=device-width, initial-scale=1"-->
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	-->
+
+	<title> DU Phone Directory </title>
+	<script type="text/javascript">
+			function show_contact(){
+					console.log("entered checked");
+					var xhttp = new XMLHttpRequest();
+
+					xhttp.onreadystatechange = function(){
+							if(this.readyState== 4 && this.status == 200){
+									console.log(this.responseText);
+									document.getElementById("showName").innerHTML = this.responseText;
+							}
+					};
+
+					var department = document.getElementById("department").value;
+					var position =  document.getElementById("position").value;
+					var name = document.getElementById("name").value;
+					if(name == " ") name = "#";
+					var faculty = document.getElementById("faculty").value;
+					var params = "department="+department+"&position="+position;
+					params = params + "&name="+name+"&faculty="+faculty;
+					xhttp.open("POST","list.php", true); // method, which file, async
+					xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhttp.send(params);
+
+			}
+
+	</script>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		input[type=text]{
+			resize: none;
+			width: 25%;
+			border-color: #4CAF50;
+			border-radius: 20px;
+		}
+	</style>
+</head>
+   <body style="background-color:#d8dbd6;">
+   <script>
+       var xhttp1 = new XMLHttpRequest();
+
+       xhttp1.onreadystatechange = function(){
+           if(this.readyState== 4 && this.status == 200){
+               console.log(this.responseText);
+               if(this.responseText == "TRUE"){
+				   document.getElementById("add_contact").innerHTML = "<li><a href=\"add\">Add Contact</a></li>";
+				   document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>";
+			   } else{
+                   document.getElementById("add_contact").innerHTML = "";
+                   document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"login\">Login</a></li>";
+
+               }
+
+           }
+       };
+       //console.log(value);
+       xhttp1.open("GET","session_check.php", true); // method, which file, async
+       xhttp1.send();
+   </script>
+   <ul>
+	   <li><a class="active" href="show">Browse</a></li>
+	   <div id = "add_contact"></div>
+	   <div id = "login_out"></div>
+
+   </ul>
+   <div align="left">
+	Name
+	<input type="text" id = "name" rows="1" cols="50"></input>
+	Department
+	 <select id = "department">
+		 <script type="text/javascript">
+			 var xhttp1 = new XMLHttpRequest();
+
+			 xhttp1.onreadystatechange = function(){
+				 if(this.readyState== 4 && this.status == 200){
+					 console.log(this.responseText);
+					 document.getElementById("department").innerHTML = this.responseText;
+				 }
+			 };
+			 //console.log(value);
+			 sql_params = "query=SELECT department FROM department&field=department";
+			 xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+			 xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			 xhttp1.send(sql_params);
+		 </script>
+
+		</select>
+
+	 Position
+	 <select id = "position">
+		  <option value="#"> --- </option>
+
+		 <script type="text/javascript">
+			 var xhttp1 = new XMLHttpRequest();
+
+			 xhttp1.onreadystatechange = function(){
+				 if(this.readyState== 4 && this.status == 200){
+					 console.log(this.responseText);
+					 document.getElementById("position").innerHTML = this.responseText;
+				 }
+			 };
+			 //console.log(value);
+			 sql_params = "query=SELECT DISTINCT position FROM position&field=position";
+			 xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+			 xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			 xhttp1.send(sql_params);
+		 </script>
+
+		</select>
+	Faculty
+	<select id = "faculty">
+		<option value="#"> --- </option>
+
+		<script type="text/javascript">
+			var xhttp1 = new XMLHttpRequest();
+
+			xhttp1.onreadystatechange = function(){
+				if(this.readyState== 4 && this.status == 200){
+					console.log(this.responseText);
+					document.getElementById("faculty").innerHTML = this.responseText;
+				}
+			};
+			//console.log(value);
+			sql_params = "query=SELECT DISTINCT faculty FROM person&field=faculty";
+			xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+			xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp1.send(sql_params);
+		</script>
+
+	</select>
+   </div>
+   <br><input type = "submit" value = "Search" onclick="show_contact()"/><br>
+   <!--<div class="row">-->
+   <ul style="list-style-type: none;
+				margin: auto;
+				padding: auto;
+				overflow: hidden;
+				background: #d8dbd6;">
+	   <p id="showName"> ID comes here </p>
+   </ul>
+   <!--</div>-->
+   </body>
+</html>

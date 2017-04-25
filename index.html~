@@ -1,0 +1,7 @@
+<html>
+<head> Testing appengine </head>
+<body>
+    <a href="add_contact.html">Click to add new contact.</a><br>
+    <a href="list.php">Click to show new contact.</a><br>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 500px;
+            height: auto;
+            margin: auto;
+            padding: auto;
+            border-radius: 20px;
+            background: #ffffff;
+            font-family: arial;
+
+        }
+        .container{
+            padding: 50px;
+        }
+        textarea{
+            resize: none;
+            width: 70%;
+            border-color: #4CAF50;
+            border-radius: 20px;
+            font-size: x-large;
+        }
+        input[type=password]{
+            resize: none;
+            width: 70%;
+            border-color: #4CAF50;
+            border-radius: 20px;
+            font-size: x-large;
+        }
+    </style>
+    <script type="text/javascript">
+        function submit() {
+            console.log("entered checked");
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState== 4 && this.status == 200){
+                    console.log(this.responseText);
+                    if(this.responseText=="Wrong Username/Password")
+                        document.getElementById("showmessage").innerHTML = this.responseText;
+                    else if(this.responseText=="Success")
+                        window.location.href = "show";
+
+                }
+            };
+
+            var username = document.getElementById("username").value;
+            if(username == " ") username = "#";
+            var password = document.getElementById("password").value;
+            var params = "username="+username+"&password="+password;
+            //console.log(value);
+            xhttp.open("POST","login.php", true); // method, which file, async
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(params);
+            //console.log("sent");
+        }
+    </script>
+</head>
+<body style="background-color:#d8dbd6;">
+<ul>
+    <li><a href="show">Browse</a></li>
+    <li style="float: right"><a class="active"  href="login">Login</a></li>
+    <!--<li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>-->
+</ul>
+<div class="card">
+    <div class="container">
+        <h2>Username:</h2>
+        <textarea id = "username" rows="1" cols="50"
+                  style="resize: none "></textarea>
+        <h2>Password:</h2>
+        <input type="password" id = "password" rows="1" cols="50"
+               style="resize: none "></input>
+        <p id="showmessage" style = "color: red"></p>
+        <br><br><input type = "submit" value = "Login" onclick="submit()"/><br>
+    </div>
+</div>
+
+
+</body>
+</html>

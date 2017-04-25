@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="UTF-8">
+        <title> Odd Even Checker </title>
+        <script type="text/javascript">
+                function show_contact(){
+                        console.log("entered checked");
+                        var xhttp = new XMLHttpRequest();
+						
+                        xhttp.onreadystatechange = function(){
+                                if(this.readyState== 4 && this.status == 200){
+                                        console.log(this.responseText);
+										document.getElementById("showName").innerHTML = this.responseText;
+                                }
+                        };
+						
+                        var department = document.getElementById("department").value;
+						var position =  document.getElementById("position").value;
+						var params = "department="+department+"&position="+position;
+                        //console.log(value);
+                        xhttp.open("POST","list.php", true); // method, which file, async 
+						xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhttp.send(params);
+                        //console.log("sent");
+                        
+                }
+        </script>
+</head>
+   <body>
+	Department
+     <select id = "department">
+		  <option value="#"> --- </option>
+		  <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+		  <option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering</option>
+		  <option value="Nuclear Engineering">Nuclear Engineering</option>
+		  <option value="Applied Chemistry and Chemical Engineering">Applied Chemistry and Chemical Engineering</option>
+		</select>
+
+	 Position
+     <select id = "position">
+		  <option value="#"> --- </option>
+		  <option value="Chairman">Chairman</option>
+		  <option value="Departmental Office">Departmental Office</option>
+		  <option value="Associate Professor">Associate Professor</option>
+		  <option value="Assistant Professor">Assistant Professor</option>
+		  <option value="Lecturer">Lecturer</option>
+		</select>
+      <p id="showName"> prediction comes here </p>
+	  <br><input type = "submit" value = "submit" onclick="show_contact()"/><br>
+      <a href = "/weblab/phone_directory">Go back to home page</a>
+
+   </body>
+</html>
