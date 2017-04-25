@@ -9,7 +9,7 @@
 
 ?>
 </head>
-<body onload="window.location = '/weblab/phone_directory'">
+<body onload="window.location.href = 'show'">
 
 </body>
 </html>
