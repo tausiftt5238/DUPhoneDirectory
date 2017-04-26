@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <?php
 header('Content-Type: text/html; charset=utf-8');
 //mb_internal_encoding("UTF-8");
@@ -14,7 +13,7 @@ $username = "adminman";
 $password = "password";
 $dbname = "directory_uni";
 
-$ret_str = "<option value=\"#\"> --- </option>";
+$ret_str = "<option value=\"#\">---</option>";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
