@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Add contact</title>
+	<title>Edit contact</title>
 	<link rel="stylesheet" href="styles.css">
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 	<style>
@@ -13,34 +13,71 @@
 		}
 	</style>
 	<script type="text/javascript">
-		var nemail=0;
-		var nphone=0;
+        var nemail=0;
+        var nphone=0;
 
-		function expandmail() {
-		    nemail = nemail+1;
-		    var str = "Email"+(nemail+1).toString()+":<br><input type=\"text\" id=\""+nemail.toString()+"\"></input><br>"
-		    //var oldhtml = document.getElementById("extramail").innerHTML;
+        function expandmail() {
+            nemail = nemail+1;
+            var str = "Email"+(nemail+1).toString()+":<br><input type=\"text\" id=\"email"+nemail.toString()+"\"></input><br>"
+            //var oldhtml = document.getElementById("extramail").innerHTML;
             //document.getElementById("extramail").innerHTML = oldhtml + str;
-			document.getElementById("extramail").insertAdjacentHTML("beforeend",str);
-		}
+            document.getElementById("extramail").insertAdjacentHTML("beforeend",str);
+        }
 
-		function expandphone() {
+        function expandphone() {
             nphone = nphone+1;
-            var str = "Phone"+(nphone+1).toString()+":<br><input type=\"number\" id=\""+nphone.toString()+"\"></input><br>"
+            var str = "Phone"+(nphone+1).toString()+":<br><input type=\"number\" id=\"phone"+nphone.toString()+"\"></input><br>"
             //var oldhtml = document.getElementById("extraphone").innerHTML;
             //document.getElementById("extraphone").innerHTML = oldhtml + str;
             document.getElementById("extraphone").insertAdjacentHTML("beforeend",str);
-		}
+        }
 
-		function submit() {
-		    var elems = document.getElementsByTagName("INPUT");
-		    var len = elems.length;
-		    for(var i=0;i<len;i++) {
-		        if(elems[i].value=="") {
-                    document.getElementById("errmsg").innerHTML = "<a style='color: red'>Empty Fields not allowed</a>"
-		            return;
+        function getFromID() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if(this.readyState== 4 && this.status == 200){
+                    console.log(this.responseText);
+                    var res = this.responseText;
+                    var data = res.split("\n");
+                    document.getElementById("name").value = data[0];
+                    document.getElementById("position").value = data[1];
+                    var nem = parseInt(data[2]);
+                    var nph = parseInt(data[3]);
+                    var i = 4;
+                    if(nem>0) {
+                        document.getElementById("email").value = data[i++];
+					}
+					for(var j=1;j<nem;j++) {
+                        expandmail();
+                        document.getElementById("email"+j).value = data[i++];
+					}
+                    if(nph>0) {
+                        document.getElementById("phone").value = data[i++];
+                    }
+                    for(var j=1;j<nph;j++) {
+                        expandphone();
+                        document.getElementById("phone"+j).value = data[i++];
+                    }
                 }
 			}
+			var str = document.URL;
+            var id = str.split("=")[1];
+
+            xhttp.open("POST","getFromID.php", true); // method, which file, async
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id="+id);
+		}
+
+        function submit() {
+            var elems = document.getElementsByTagName("INPUT");
+            var len = elems.length;
+            for(var i=0;i<len;i++) {
+                if(elems[i].value=="") {
+                    document.getElementById("errmsg").innerHTML = "<a style='color: red'>Empty Fields not allowed</a>"
+                    return;
+                }
+            }
             if(document.getElementById("position").value=="#") {
                 document.getElementById("errmsg").innerHTML = "<a style='color: red'>Empty Fields not allowed</a>"
                 return;
@@ -53,8 +90,8 @@
                     if(this.responseText.indexOf("failed")!=-1)
                         document.getElementById("errmsg").innerHTML = "<a style='color: red'>Failed to insert data</a>";
                     else
-                        //document.getElementById("errmsg").innerHTML = this.responseText;
-                        window.location.href = "show";
+                        document.getElementById("errmsg").innerHTML = this.responseText;
+                    //window.location.href = "show";
                 }
             };
 
@@ -65,7 +102,7 @@
             len = emails.length;
             for(var i=0;i<len;i++) {
                 email += "#"+emails[i].value;
-			}
+            }
             var phone = document.getElementById("phone").value;
             var phones = document.getElementById("extraphone").getElementsByTagName("INPUT");
             len = phones.length;
@@ -80,7 +117,7 @@
             xhttp.open("POST","success.php", true); // method, which file, async
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(params);
-		}
+        }
 	</script>
 </head>
 <body style="background-color:#d8dbd6;">
@@ -128,5 +165,8 @@ Position<br>
 
 <p id="errmsg"></p>
 <!--</div>-->
+<script type="text/javascript">
+	getFromID();
+</script>
 </body>
 </html>

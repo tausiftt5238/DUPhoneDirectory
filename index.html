@@ -58,6 +58,10 @@
 			    document.getElementById('fullcontact').outerHTML = "";
 			    document.getElementById('contactlist').style.display = 'inline';
 			}
+
+			function edit(id) {
+			    window.location.href = "edit?id="+id;
+			}
 	</script>
 	<link rel="stylesheet" href="styles.css">
 	<style>
@@ -76,7 +80,7 @@
        xhttp1.onreadystatechange = function(){
            if(this.readyState== 4 && this.status == 200){
                console.log(this.responseText);
-               if(this.responseText == "TRUE"){
+               if(this.responseText == "USER"){
 				   document.getElementById("add_contact").innerHTML = "<li><a href=\"add\">Add Contact</a></li>";
 				   document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>";
 			   } else{
@@ -173,5 +177,18 @@
 	   <p id="showName"> ID comes here </p>
    </ul>
    <!--</div>-->
+   <script type="text/javascript">
+       var xhttp = new XMLHttpRequest();
+
+       xhttp.onreadystatechange = function(){
+           if(this.readyState== 4 && this.status == 200){
+               console.log(this.responseText);
+               document.getElementById("showName").innerHTML = this.responseText;
+           }
+       };
+       xhttp.open("POST","listlogged.php", true); // method, which file, async
+       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+       xhttp.send();
+   </script>
    </body>
 </html>

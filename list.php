@@ -1,6 +1,7 @@
 <?php
         header('Content-Type: text/html; charset=utf-8');
 
+        session_start();
         $servername = "localhost";
         $username = "adminman";
         $password = "password";
@@ -52,6 +53,7 @@
               $sql = $sql." AND ";
           $sql = $sql." position LIKE '%".$position."%'";
         }
+        $sql = $sql." ORDER BY name ASC";
         //$ret_str = $ret_str.$sql;
         $result = $conn->query($sql);
 
