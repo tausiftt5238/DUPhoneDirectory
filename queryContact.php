@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-
+session_start();
 $servername = "localhost";
 $username = "adminman";
 $password = "password";
@@ -16,6 +16,16 @@ $conn->set_charset('utf8mb4');
 if ($conn->connect_error) {
 	//die("Connection failed: " . $conn->connect_error);
 	$ret_str = $ret_str."failed";
+}
+
+$loggedDept = "";
+if(isset($_SESSION["username"])) {
+	$sql = "SELECT department FROM users WHERE username='". $_SESSION["username"] ."'";
+	$result = $conn->query($sql);
+	if($result->num_rows>0) {
+		$row = $result->fetch_assoc();
+		$loggedDept = $row["department"];
+	}
 }
 
 $id = $_POST['id'];
@@ -70,6 +80,10 @@ if ($result->num_rows > 0) {
 
 		}
 		$ret_str = $ret_str."</div>";//</div><!--/div--></li>";
+
+		if($row['department']==$loggedDept) {
+			$ret_str = $ret_str."   <button onclick='edit(\"".$row['ID']."\")'>Edit</button>";
+		}
 
 	}
 	$ret_str = $ret_str."<button onclick='rewind()'>Back</button>";
