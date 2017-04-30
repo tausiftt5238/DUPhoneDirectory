@@ -83,6 +83,7 @@ if ($result->num_rows > 0) {
 
 		if($row['department']==$loggedDept) {
 			$ret_str = $ret_str."   <button onclick='edit(\"".$row['ID']."\")'>Edit</button>";
+			$ret_str = $ret_str."   <button onclick='deletion(\"".$row['ID']."\")'>Delete</button>";
 		}
 
 	}
