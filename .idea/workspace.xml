@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1453198-07aa-471e-ba1a-7a5eaef4961b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/edit_contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_contact.html" afterPath="$PROJECT_DIR$/add_contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit_contact.html" afterPath="$PROJECT_DIR$/edit_contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.html" />
-    </list>
+    <list default="true" id="f1453198-07aa-471e-ba1a-7a5eaef4961b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +15,8 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="66" column="61" lean-forward="false" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
+            <state relative-caret-position="229">
+              <caret line="72" column="52" lean-forward="true" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
               <folding>
                 <marker date="1493566932565" expanded="true" signature="736:803" ph="SELECT * FRO... person" />
                 <marker date="1493566932565" expanded="true" signature="1907:2124" ph="..." />
@@ -234,12 +227,12 @@
       <workItem from="1493378397637" duration="1178000" />
       <workItem from="1493479010741" duration="13015000" />
       <workItem from="1493543210707" duration="412000" />
-      <workItem from="1493559320571" duration="8980000" />
+      <workItem from="1493559320571" duration="9090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104504000" />
+    <option name="totallyTimeSpent" value="104614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -875,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="66" column="61" lean-forward="false" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
+        <state relative-caret-position="229">
+          <caret line="72" column="52" lean-forward="true" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
           <folding>
             <marker date="1493566932565" expanded="true" signature="736:803" ph="SELECT * FRO... person" />
             <marker date="1493566932565" expanded="true" signature="1907:2124" ph="..." />
