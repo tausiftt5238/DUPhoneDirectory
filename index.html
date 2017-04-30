@@ -96,14 +96,14 @@
        xhttp1.onreadystatechange = function(){
            if(this.readyState== 4 && this.status == 200){
                console.log(this.responseText);
-               if(this.responseText == "USER"){
-				   document.getElementById("add_contact").innerHTML = "<li><a href=\"add\">Add Contact</a></li>";
-				   document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>";
-				   document.getElementById("helpmsg").innerHTML = "Click on a contact to Edit/Delete"
-			   } else{
+               if(this.responseText == "FALSE"){
                    document.getElementById("add_contact").innerHTML = "";
                    document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"login\">Login</a></li>";
-
+			   } else{
+                   var usr = "<li style=\"float: right\"><a>"+this.responseText+"</a></li>";
+                   document.getElementById("add_contact").innerHTML = "<li><a href=\"add\">Add Contact</a></li>";
+                   document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>"+usr;
+                   document.getElementById("helpmsg").innerHTML = "Click on a contact to Edit/Delete"
                }
 
            }
