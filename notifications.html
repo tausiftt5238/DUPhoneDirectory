@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Notifications</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:hover {
+			background-color: #dddddd;
+		}
+
+		tr a {
+			display: block;
+			color: black;
+			padding: inherit;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+
+	<script>
+        function edit(id) {
+            window.location.href = "edit?id="+id;
+        }
+
+        function getnotifs() {
+            var xhttp1 = new XMLHttpRequest();
+
+            xhttp1.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    document.getElementById("notif").innerHTML = this.responseText;
+                }
+            };
+
+            xhttp1.open("GET", "getnotifs.php", true);
+            xhttp1.send();
+        }
+	</script>
+</head>
+<body style="background-color:#d8dbd6;">
+
+<script>
+    var xhttp1 = new XMLHttpRequest();
+
+    xhttp1.onreadystatechange = function(){
+        if(this.readyState== 4 && this.status == 200){
+            console.log(this.responseText);
+            if(this.responseText == "FALSE"){
+                document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"login\">Login</a></li>";
+            } else{
+                var usr = "<li style=\"float: right\"><a>"+this.responseText+"</a></li>";
+                document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>"+usr;
+            }
+
+        }
+    };
+    //console.log(value);
+    xhttp1.open("GET","session_check.php", true); // method, which file, async
+    xhttp1.send();
+</script>
+
+<ul>
+	<li><a href="show">Browse</a></li>
+	<li><a href="add">Add Contact</a></li>
+	<li><a class="active" href="notifications">Notifications</a></li>
+	<div id="login_out"><li style="float: right"><a href="logout">Logout</a></li></div>
+	<!--<li><a href="#about">About</a></li>-->
+</ul><br>
+
+<table style="background-color: white" id="notif">
+	<tr><td><a>Notifications</a></td></tr>
+</table>
+
+<script>
+	getnotifs();
+	window.setTimeout(getnotifs, 30000);
+</script>
+
+</body>
+</html>

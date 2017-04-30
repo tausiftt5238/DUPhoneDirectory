@@ -4,3 +4,4 @@ RewriteRule ^show$ index.html
 RewriteRule ^login$ login.html
 RewriteRule ^logout$ logout.php
 RewriteRule ^edit$ edit_contact.html
+RewriteRule ^notifications$ notifications.html

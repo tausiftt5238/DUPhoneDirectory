@@ -25,6 +25,10 @@ if(isset($_SESSION['username'])) {
 	$row = $result->fetch_assoc();
 	$ret_str = $ret_str.$row["name"]."\n";
 
+	$sql = "DELETE FROM notifications WHERE ID='".$id."'";
+
+	$result = $conn->query($sql);
+
 	$sql = "SELECT position FROM position WHERE id='".$id."'";
 
 	$result = $conn->query($sql);
@@ -50,6 +54,8 @@ if(isset($_SESSION['username'])) {
 
 
 }
+$conn->close();
 
 echo $ret_str;
+
 ?>

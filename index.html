@@ -78,6 +78,22 @@
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send(params);
 			}
+
+			function report(id) {
+			    var xhttp = new XMLHttpRequest();
+
+			    xhttp.onreadystatechange = function () {
+					if(this.readyState== 4 && this.status == 200){
+					    console.log(this.responseText);
+					    alert("This contact has been reported\nWe apologize for your inconvenience");
+					}
+                };
+
+			    var params = "id="+id;
+                xhttp.open("POST","report_contact.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(params);
+			}
 	</script>
 	<link rel="stylesheet" href="styles.css">
 	<style>
@@ -89,6 +105,8 @@
 		}
 	</style>
 </head>
+
+
    <body style="background-color:#d8dbd6;">
    <script>
        var xhttp1 = new XMLHttpRequest();
@@ -102,6 +120,7 @@
 			   } else{
                    var usr = "<li style=\"float: right\"><a>"+this.responseText+"</a></li>";
                    document.getElementById("add_contact").innerHTML = "<li><a href=\"add\">Add Contact</a></li>";
+                   document.getElementById("notifications").innerHTML = "<li><a href=\"notifications\">Notifications</a></li>";
                    document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>"+usr;
                    document.getElementById("helpmsg").innerHTML = "Click on a contact to Edit/Delete"
                }
@@ -115,8 +134,8 @@
    <ul>
 	   <li><a class="active" href="show">Browse</a></li>
 	   <div id = "add_contact"></div>
+	   <div id="notifications"></div>
 	   <div id = "login_out"></div>
-
    </ul>
    <div align="left">
 	Name
