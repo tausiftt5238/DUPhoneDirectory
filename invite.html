@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" href = "foundation.css">
+	<title>Invite</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+
+		.card {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			width: auto;
+			height: auto;
+			margin: auto;
+			padding: auto;
+			border-radius: 20px;
+			background: #ffffff;
+			font-family: arial;
+
+		}
+		.container{
+			padding: 50px;
+		}
+		input[type=text]{
+			resize: none;
+			border-color: #4CAF50;
+			border-radius: 20px;
+			font-size: x-large;
+		}
+	</style>
+	<script type="text/javascript">
+        function submit() {
+            console.log("entered checked");
+
+            var xhttp = new XMLHttpRequest();
+            var email = document.getElementById("email").value;
+            var department = document.getElementById("department").value;
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState== 4 && this.status == 200){
+                    console.log(this.responseText);
+                    document.getElementById("message").innerHTML = this.responseText;
+                }
+            };
+
+            var params = "email="+email+"&department="+department;
+            xhttp.open("POST","invitemail.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(params);
+        }
+	</script>
+</head>
+<body style="background-color:#d8dbd6;">
+<ul>
+	<li><a href="show">Browse</a></li>
+	<li style="float: right"><a href="logout">Logout</a></li>
+	<!--<li><a href="#contact">Contact</a></li>
+	<li><a href="#about">About</a></li>-->
+</ul>
+<div class="large-5 medium-8 columns end">
+<div class="card">
+	<div class="container">
+		<h3>Email</h3>
+		<input type="text" id = "email" style="resize: none ">
+		<h3>Department</h3>
+		<select id = "department">
+			<script type="text/javascript">
+                var xhttp1 = new XMLHttpRequest();
+
+                xhttp1.onreadystatechange = function(){
+                    if(this.readyState== 4 && this.status == 200){
+                        console.log(this.responseText);
+                        document.getElementById("department").innerHTML = this.responseText;
+                    }
+                };
+                //console.log(value);
+                sql_params = "query=SELECT department FROM department&field=department";
+                xhttp1.open("POST","queryForOne.php", true); // method, which file, async
+                xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp1.send(sql_params);
+			</script>
+
+		</select>
+		<p id="message" style = "color: red"></p>
+		<br><br><input type = "submit" value = "Sign Up" onclick="submit()"/><br>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

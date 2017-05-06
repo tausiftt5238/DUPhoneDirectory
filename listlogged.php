@@ -35,7 +35,7 @@ if(isset($_SESSION['username'])) {
 
 			$ret_str = $ret_str."<!--<div class=\"col-sm-4\">--><li><div class=\"card\">";
 			$ret_str = $ret_str."  <div class=\"container\">";
-			$ret_str = $ret_str."    <h1>".$row['name']."</h1>";
+			$ret_str = $ret_str."    <h3>".$row['name']."</h3>";
 			$ret_str = $ret_str."<p class=\"title\">".$row['position']."</p>";
 			$ret_str = $ret_str."    <p>".$row['department']."</p>";
 			$ret_str = $ret_str."    <p>".$row['faculty']."</p>";
@@ -45,8 +45,6 @@ if(isset($_SESSION['username'])) {
 
 		}
 		$ret_str = $ret_str."</div>";
-	} else {
-		$ret_str = $ret_str."0 results";
 	}
 	$conn->close();
 }

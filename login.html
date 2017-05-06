@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = "stylesheet" href = "foundation.css">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <title>Log In</title>
@@ -10,7 +12,7 @@
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            width: 500px;
+            width: auto;
             height: auto;
             margin: auto;
             padding: auto;
@@ -22,16 +24,14 @@
         .container{
             padding: 50px;
         }
-        textarea{
+        input[type=text]{
             resize: none;
-            width: 70%;
             border-color: #4CAF50;
             border-radius: 20px;
             font-size: x-large;
         }
         input[type=password]{
             resize: none;
-            width: 70%;
             border-color: #4CAF50;
             border-radius: 20px;
             font-size: x-large;
@@ -72,19 +72,21 @@
     <!--<li><a href="#contact">Contact</a></li>
     <li><a href="#about">About</a></li>-->
 </ul>
+<div class="large-5 medium-8 columns end">
 <div class="card">
     <div class="container">
+
         <h2>Username:</h2>
-        <textarea id = "username" rows="1" cols="50"
-                  style="resize: none "></textarea>
+        <input type="text" id = "username"
+                  style="resize: none "></input>
         <h2>Password:</h2>
-        <input type="password" id = "password" rows="1" cols="50"
+        <input type="password" id = "password"
                style="resize: none "></input>
         <p id="showmessage" style = "color: red"></p>
         <br><br><input type = "submit" value = "Login" onclick="submit()"/><br>
     </div>
 </div>
-
+</div>
 
 </body>
 </html>

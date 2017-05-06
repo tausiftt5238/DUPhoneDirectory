@@ -17,8 +17,10 @@ if(isset($_SESSION['username'])) {
 		die("Connection failed: " . $conn->connect_error);
 		$ret_str = $ret_str . "failed";
 	}
-
-	$sql = "SELECT * FROM notifications WHERE username='". $_SESSION["username"] ."'";
+	if($_SESSION['username']!='admin')
+		$sql = "SELECT * FROM notifications WHERE username='". $_SESSION["username"] ."'";
+	else
+		$sql = "SELECT * FROM notifications";
 
 	$result = $conn->query($sql);
 	while($row = $result->fetch_assoc()) {

@@ -79,19 +79,19 @@ if ($result->num_rows > 0) {
 			$ret_str = $ret_str."</p>";
 
 		}
-		$ret_str = $ret_str."</div>";//</div><!--/div--></li>";
+		//$ret_str = $ret_str."</div>";//</div><!--/div--></li>";
 
 		if($row['department']==$loggedDept) {
-			$ret_str = $ret_str."   <button onclick='edit(\"".$row['ID']."\")'>Edit</button>";
-			$ret_str = $ret_str."   <button onclick='deletion(\"".$row['ID']."\")'>Delete</button>";
+			$ret_str = $ret_str." <button style='width:32%' onclick='edit(\"".$row['ID']."\")'>Edit</button>";
+			$ret_str = $ret_str." <button style='width:32%' onclick='deletion(\"".$row['ID']."\")'>Delete</button>";
 		}
 		else {
-			$ret_str = $ret_str."   <button onclick='report(\"".$row['ID']."\")'>Report</button>";
+			$ret_str = $ret_str."   <button style='width:32%' onclick='report(\"".$row['ID']."\")'>Report</button>";
 		}
 
 	}
-	$ret_str = $ret_str."<button onclick='rewind()'>Back</button>";
-	$ret_str = $ret_str."</div>";
+	$ret_str = $ret_str." <button style='width:32%' onclick='rewind()'>Back</button>";
+	$ret_str = $ret_str."</div></div><br>";
 } else {
 	$ret_str = $ret_str."0 results";
 }
