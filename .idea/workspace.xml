@@ -17,13 +17,13 @@
       <file leaf-file-name="notifications.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notifications.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state relative-caret-position="238">
+              <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1494162124756" expanded="true" signature="1594:1606" ph="..." />
-                <marker date="1494162124756" expanded="true" signature="1703:1715" ph="..." />
-                <marker date="1494162124756" expanded="true" signature="1832:1844" ph="..." />
+                <marker date="1494162296399" expanded="true" signature="1594:1606" ph="..." />
+                <marker date="1494162296399" expanded="true" signature="1703:1715" ph="..." />
+                <marker date="1494162296399" expanded="true" signature="1832:1844" ph="..." />
               </folding>
             </state>
           </provider>
@@ -366,12 +366,12 @@
       <workItem from="1494053821572" duration="5638000" />
       <workItem from="1494062066459" duration="7340000" />
       <workItem from="1494081704556" duration="659000" />
-      <workItem from="1494160243361" duration="1866000" />
+      <workItem from="1494160243361" duration="2037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146251000" />
+    <option name="totallyTimeSpent" value="146422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="741" extended-state="0" />
@@ -846,13 +846,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notifications.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state relative-caret-position="238">
+          <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1494162124756" expanded="true" signature="1594:1606" ph="..." />
-            <marker date="1494162124756" expanded="true" signature="1703:1715" ph="..." />
-            <marker date="1494162124756" expanded="true" signature="1832:1844" ph="..." />
+            <marker date="1494162296399" expanded="true" signature="1594:1606" ph="..." />
+            <marker date="1494162296399" expanded="true" signature="1703:1715" ph="..." />
+            <marker date="1494162296399" expanded="true" signature="1832:1844" ph="..." />
           </folding>
         </state>
       </provider>
