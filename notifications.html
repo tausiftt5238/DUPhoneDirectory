@@ -68,7 +68,7 @@
             }
 
             if(this.responseText == "admin") {
-                document.getElementById("add").innerHTML = "<li><a href=\"invite\">Invite</a></li>";
+                document.getElementById("add_contact").innerHTML = "<li><a href=\"invite\">Invite</a></li>";
             }
         }
     };
@@ -79,7 +79,7 @@
 
 <ul>
 	<li><a href="show">Browse</a></li>
-	<li><a href="add">Add Contact</a></li>
+	<div id="add_contact"><li><a href="add">Add Contact</a></li></div>
 	<li><a class="active" href="notifications">Notifications</a></li>
 	<div id="login_out"><li style="float: right"><a href="logout">Logout</a></li></div>
 	<!--<li><a href="#about">About</a></li>-->

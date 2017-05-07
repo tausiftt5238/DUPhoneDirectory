@@ -35,8 +35,8 @@ if(isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
 	require_once 'lib/swift_required.php';
 
 	$subject = 'Invite to DU Holud Boi'; // Give the email a subject
-	$address = "http://103.251.247.107/weblab/phone_directory/signup.html";
-	$body = "To sign up to DU Holud Boi use the following invite code: " . $inviteCode . " at this link: " . $address."\nYour department is ".$department;
+	$address = "http://csedu.cf/directory_uni/signup";
+	$body = "To sign up to DU Holud Boi use the following invite code: " . $inviteCode . "\nAt this link: " . $address."\nYour department is ".$department;
 
 	//printf("\n\nhere\n\n");
 	$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")

@@ -27,14 +27,14 @@ if(isset($_SESSION['username'])) {
 		$id = $row["id"];
 		$time = $row["time"];
 
-		$sql = "SELECT name from person WHERE ID='". $id ."'";
+		$sql = "SELECT name,department from person WHERE ID='". $id ."'";
 		$nameres = $conn->query($sql);
 		$namerow = $nameres->fetch_assoc();
 
 		$name = $namerow["name"];
 		$header = "<tr><td><a onclick='edit(\"".$id."\")'>";
 		$footer = "</a></td></tr>";
-		$str = "Contact details of ". $name ." reported at ". $time;
+		$str = "Contact details of ". $name ." of department: ". $namerow["department"] ." reported at ". $time;
 		$ret_str = $ret_str . $header . $str . $footer;
 	}
 
