@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1453198-07aa-471e-ba1a-7a5eaef4961b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/delete_contact.php" afterPath="$PROJECT_DIR$/delete_contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit_contact.php" afterPath="$PROJECT_DIR$/edit_contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getFromID.php" afterPath="$PROJECT_DIR$/getFromID.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getnotifs.php" afterPath="$PROJECT_DIR$/getnotifs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/invitemail.php" afterPath="$PROJECT_DIR$/invitemail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/list.php" afterPath="$PROJECT_DIR$/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listlogged.php" afterPath="$PROJECT_DIR$/listlogged.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/predict.php" afterPath="$PROJECT_DIR$/predict.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queryContact.php" afterPath="$PROJECT_DIR$/queryContact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queryForOne.php" afterPath="$PROJECT_DIR$/queryForOne.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report_contact.php" afterPath="$PROJECT_DIR$/report_contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signup.php" afterPath="$PROJECT_DIR$/signup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/success.php" afterPath="$PROJECT_DIR$/success.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syncdroid.php" afterPath="$PROJECT_DIR$/syncdroid.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notifications.html" afterPath="$PROJECT_DIR$/notifications.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,15 +14,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="notifications.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="notifications.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notifications.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="37" />
+            <state relative-caret-position="253">
+              <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
               <folding>
-                <marker date="1494068376342" expanded="true" signature="1594:1606" ph="..." />
-                <marker date="1494068376342" expanded="true" signature="1703:1715" ph="..." />
-                <marker date="1494068376342" expanded="true" signature="1832:1844" ph="..." />
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1494162124756" expanded="true" signature="1594:1606" ph="..." />
+                <marker date="1494162124756" expanded="true" signature="1703:1715" ph="..." />
+                <marker date="1494162124756" expanded="true" signature="1832:1844" ph="..." />
               </folding>
             </state>
           </provider>
@@ -151,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1196">
+            <state relative-caret-position="210">
               <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
               <folding>
                 <marker date="1494160962124" expanded="true" signature="4548:4560" ph="..." />
@@ -198,7 +182,6 @@
         <option value="$PROJECT_DIR$/add_contact.html" />
         <option value="$PROJECT_DIR$/edit_contact.html" />
         <option value="$PROJECT_DIR$/invite.html" />
-        <option value="$PROJECT_DIR$/notifications.html" />
         <option value="$PROJECT_DIR$/delete_contact.php" />
         <option value="$PROJECT_DIR$/edit_contact.php" />
         <option value="$PROJECT_DIR$/getFromID.php" />
@@ -216,6 +199,7 @@
         <option value="$PROJECT_DIR$/syncdroid.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/notifications.html" />
       </list>
     </option>
   </component>
@@ -382,12 +366,12 @@
       <workItem from="1494053821572" duration="5638000" />
       <workItem from="1494062066459" duration="7340000" />
       <workItem from="1494081704556" duration="659000" />
-      <workItem from="1494160243361" duration="1436000" />
+      <workItem from="1494160243361" duration="1866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145821000" />
+    <option name="totallyTimeSpent" value="146251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="741" extended-state="0" />
@@ -835,18 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notifications.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="37" />
-          <folding>
-            <marker date="1494068376342" expanded="true" signature="1594:1606" ph="..." />
-            <marker date="1494068376342" expanded="true" signature="1703:1715" ph="..." />
-            <marker date="1494068376342" expanded="true" signature="1832:1844" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getnotifs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -862,12 +834,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1196">
+        <state relative-caret-position="210">
           <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
           <folding>
             <marker date="1494160962124" expanded="true" signature="4548:4560" ph="..." />
             <marker date="1494160962124" expanded="true" signature="4657:4669" ph="..." />
             <marker date="1494160962124" expanded="true" signature="5022:5034" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notifications.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1494162124756" expanded="true" signature="1594:1606" ph="..." />
+            <marker date="1494162124756" expanded="true" signature="1703:1715" ph="..." />
+            <marker date="1494162124756" expanded="true" signature="1832:1844" ph="..." />
           </folding>
         </state>
       </provider>
