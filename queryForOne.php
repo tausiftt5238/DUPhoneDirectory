@@ -9,8 +9,8 @@ header('Content-Type: text/html; charset=utf-8');
  */
 
 $servername = "localhost";
-$username = "adminman";
-$password = "password";
+$username = "directory_uni";
+$password = "directory_uni";
 $dbname = "directory_uni";
 
 $ret_str = "<option value=\"#\">---</option>";

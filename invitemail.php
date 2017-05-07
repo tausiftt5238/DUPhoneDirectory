@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 session_start();
 $servername = "localhost";
-$username = "adminman";
-$password = "password";
+$username = "directory_uni";
+$password = "directory_uni";
 $dbname = "directory_uni";
 
 if(isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
@@ -36,9 +36,9 @@ if(isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
 
 	$subject = 'Invite to DU Holud Boi'; // Give the email a subject
 	$address = "http://103.251.247.107/weblab/phone_directory/signup.html";
-	$body = "To sign up to DU Holud Boi use the following invite code: " . $inviteCode . " at this link: " . $address."Your department is ".$department;
+	$body = "To sign up to DU Holud Boi use the following invite code: " . $inviteCode . " at this link: " . $address."\nYour department is ".$department;
 
-	printf("\n\nhere\n\n");
+	//printf("\n\nhere\n\n");
 	$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
 		->setUsername('duholudboi@gmail.com')
 		->setPassword('directory_uni')

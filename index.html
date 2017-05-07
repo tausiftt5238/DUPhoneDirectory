@@ -124,6 +124,9 @@
                 document.getElementById("login_out").innerHTML = "<li style=\"float: right\"><a href=\"logout\">Logout</a></li>"+usr;
                 document.getElementById("helpmsg").innerHTML = "Click on a contact to Edit/Delete"
             }
+            if(this.responseText == "admin") {
+                document.getElementById("add_contact").innerHTML = "<li><a href=\"invite\">Invite</a></li>";
+			}
 
         }
     };
