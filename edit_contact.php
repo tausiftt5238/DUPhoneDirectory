@@ -13,6 +13,7 @@ if(isset($_SESSION['username'])) {
 	$conn->set_charset('utf8mb4');
 
 	$ret_str = "";
+	$len = 0;
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
@@ -48,7 +49,7 @@ if(isset($_SESSION['username'])) {
 			$len = count($emails);
 			$prevlen = count($prevmails);
 
-			for($i=0; $i < $prevlen; $i++) {
+			for($i=0; $i < $prevlen && $_POST['prevmail']!=""; $i++) {
 				$sql = "UPDATE email SET email='". $emails[$i] ."' WHERE ID='". $_POST["id"] ."' AND email='".$prevmails[$i]."'";
 				if ($conn->query($sql) === TRUE) {
 					$ret_str = $ret_str. $email. "updated email <br>";
@@ -66,6 +67,16 @@ if(isset($_SESSION['username'])) {
 					}
 				}
 			}
+			if($_POST['prevmail']=="") {
+				for($i=0; $i < $len; $i++) {
+					$sql = "INSERT into email (ID,email) VALUES ('" . $_POST["id"] . "','" . $emails[$i] . "')";
+					if ($conn->query($sql) === TRUE) {
+						$ret_str = $ret_str. $email. "added to email <br>";
+					} else {
+						$ret_str = $ret_str. "failed: " . $sql . "<br>" . $conn->error;
+					}
+				}
+			}
 
 			$phones = $_POST['phone'];
 			$phones = explode("#",$phones);
@@ -75,7 +86,7 @@ if(isset($_SESSION['username'])) {
 			$len = count($phones);
 			$prevlen = count($prevphones);
 
-			for($i=0; $i < $prevlen; $i++) {
+			for($i=0; $i < $prevlen && $_POST['prevphone']!=""; $i++) {
 				$sql = "UPDATE phone SET phone='". $phones[$i] ."' WHERE ID='". $_POST["id"] ."' AND phone='".$prevphones[$i]."'";
 				if ($conn->query($sql) === TRUE) {
 					$ret_str = $ret_str. $email. "updated phone <br>";
@@ -85,6 +96,17 @@ if(isset($_SESSION['username'])) {
 			}
 			if($len>$prevlen) {
 				for($i=$prevlen; $i < $len; $i++) {
+					$sql = "INSERT into phone (ID,phone) VALUES ('" . $_POST["id"] . "','" . $phones[$i] . "')";
+					if ($conn->query($sql) === TRUE) {
+						$ret_str = $ret_str. $email. "added to phone <br>";
+					} else {
+						$ret_str = $ret_str. "failed: " . $sql . "<br>" . $conn->error;
+					}
+				}
+			}
+
+			if($_POST['prevphone']=="") {
+				for($i=0; $i < $len; $i++) {
 					$sql = "INSERT into phone (ID,phone) VALUES ('" . $_POST["id"] . "','" . $phones[$i] . "')";
 					if ($conn->query($sql) === TRUE) {
 						$ret_str = $ret_str. $email. "added to phone <br>";
@@ -110,7 +132,7 @@ if(isset($_SESSION['username'])) {
 	else {
 		$ret_str = "failed";
 	}
-	echo $ret_str;
+	echo $ret_str.$len.$prevlen;
 	$conn->close();
 }
 ?>
